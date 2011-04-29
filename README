@@ -1,0 +1,5 @@
+These files recreate SEM analyses from different Ecological papers and books using the lavaan package in R.
+
+This is intended both as a learning tool for me, and for folk out there.
+
+Note, I'll include the last version on which any analysis was tested.  If something about lavaan changes and it breaks an analysis, let me know, and I'll update it.
