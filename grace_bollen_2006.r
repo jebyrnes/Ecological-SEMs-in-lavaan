@@ -99,12 +99,10 @@ model.b<-paste(sep="\n", latent.response, '
   #last bit of regression
   Colonization ~ Competitors
   
-  #extra - lavaan adds a covariance between composites
-  Soil ~~    0*Landscape
-  
   ')
 
-fit.b<-sem(model.b, sample.cov=bg.cov, sample.nobs=n)
+#note the orthogonal argument to make sure the composites are not correlated
+fit.b<-sem(model.b, sample.cov=bg.cov, sample.nobs=n, orthogonal=T)
 fit.b
 
 summary(fit.b)
@@ -128,7 +126,7 @@ standardizedSolution(fit.c)
 
 ####
 # Model D - Multiple Composites
-# still not working...although, says I have 1DF, but paper says model D has 0....
+# still not working...although, says I have 2DF, but paper says model D has 0....
 ####
 model.d<-paste(sep="\n", latent.response, '
   #composite exogenous vars
@@ -154,13 +152,10 @@ model.d<-paste(sep="\n", latent.response, '
 
   #last bit of regression
   Colonization ~ Competitors
-  
-  #extra - lavaan adds a covariance between composites
-  Soil ~~    0*Landscape + 0*Soil2 + 0*Landscape2
-  Landscape ~~ 0*Landscape2 + 0*Soil2
-  Soil2 ~~ 0*Landscape2
+
   ')
 
-fit.d<-sem(model.d, sample.cov=bg.cov, sample.nobs=n)
+fit.d<-sem(model.d, sample.cov=bg.cov, sample.nobs=n, orthogonal=TRUE)
+
 summary(fit.d)
 standardizedSolution(fit.d)
