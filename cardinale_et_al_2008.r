@@ -7,8 +7,10 @@
 #
 # I like this example as it naturally incorporates a nonlinearity.
 #
-# Note, for educational purposes, I've provided a reformulated version of the local diversity
-# portion of the model combining the two nitrogen variables into a composite
+# Note, for educational purposes, I've provided a 
+# reformulated version of the local diversity portion of the 
+# model combining the two nitrogen variables into a composite.
+# For explamation see http://www.imachordata.com/?p=748
 #
 # Data from http://www.esapubs.org/archive/ecol/E090/079/suppl-1.htm
 #
@@ -42,7 +44,7 @@ standardizedSolution(cardFit)
 
 
 #simple SA model with N and regional SR using a composite
-#for demonstration at http://imachordata.com
+#for demonstration at http://www.imachordata.com/?p=748
 compositeModel<-'
 	#1) define the composite, scale to logN
 	Nitrogen ~ logN + 1*logNcen2 #loading on the significant path!
